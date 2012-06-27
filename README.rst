@@ -1,4 +1,4 @@
-SuperFind2
+SuperFind
 ================
 
 I got inspiration from the Code intelligence plugin SublimeCodeIntel but it never really worked for me well (especially on windows).  The only feature I miss in SublimeText is code navigation, code completion, and debugging so I decided to roll my own for the first one.
