@@ -1,11 +1,11 @@
 SuperFind
 ================
 
-I got inspiration from the Code intelligence plugin SublimeCodeIntel but it never really worked for me well (especially on windows).
+I got inspiration from the Code intelligence plugin SublimeCodeIntel but it never really worked for me well (especially on windows).  The only feature I miss in SublimeText is code navigation, code completion, and debugging so I decided to roll my own for the first one.
 
 Provides the following features:
 
-* Jump to defintion
+* Jump to definition
 
 Installing
 ----------
@@ -36,5 +36,5 @@ Using
 
 * SuperFind helps you find class, modules, and functions in ruby, erb, and javascript files. even across files with just a click. Use ``super+f3`` or ``alt+click`` which will select the word and do a search.
 
-* The first time you use it 
+* The first time you use it scans all files and reads at least some files.  Beacause of this, it might be slow on the first try.
 
