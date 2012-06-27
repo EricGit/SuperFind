@@ -1,0 +1,4 @@
+[
+	{ "button": "button1", "modifiers": ["alt"], "command": "super_find"    , "press_command": "drag_select", "press_args": {"by": "words"}, "count": 1 },
+  { "button": "button2", "modifiers": ["alt"], "command": "super_find_all", "press_command": "drag_select", "press_args": {"by": "words"}, "count": 1 }
+]
