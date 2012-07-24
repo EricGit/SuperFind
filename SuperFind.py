@@ -137,10 +137,10 @@ class RubyLang(BaseLang):
     def get_regex_from_token(self, token):
         if re.match("^[A-Z_]*$", token):                              #constant
             return '{0} .*='.format(token)                             
-        elif token[0].isupper():                                      #class or module
-            return '(class +{0}|module +{0})(\W+|$)'.format(token)      
+        elif token[0].isupper():      #^[A-Z]                         #class or module
+            return '(class .*{0}|module .*{0})(\W+|$)'.format(token)      
         elif re.match("^[a-z_]*$", token):                            #function
-            return '(def|def.self) .*{0}\\b'.format(token)                 
+            return '(def|def self.) *{0}\\b'.format(token)                 
         else:
             return None
 
