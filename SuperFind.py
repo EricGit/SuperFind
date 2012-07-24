@@ -117,7 +117,7 @@ class BaseLang(object):
         return token #search by case for token by default
 
     def files_to_search(self):
-        return [".js", ".rb", ".erb"] #search all files
+        return [".js", ".rb", ".erb", ".rhtml"] #search all files
 
     #class method
     @staticmethod
@@ -138,7 +138,8 @@ class RubyLang(BaseLang):
         if re.match("^[A-Z_]*$", token):                              #constant
             return '{0} .*='.format(token)                             
         elif token[0].isupper():      #^[A-Z]                         #class or module
-            return '(class .*{0}|module .*{0})(\W+|$)'.format(token)      
+            #start of line, maybe some space, "class", then namespacing, class name, some non character space or end of line
+            return '^\s*(class[a-zA-Z0-9: ]*( |:){0}|module .*{0})(\W+|$)'.format(token)
         elif re.match("^[a-z_]*$", token):                            #function
             return '(def|def self.) *{0}\\b'.format(token)                 
         else:
