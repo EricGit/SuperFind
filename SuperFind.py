@@ -141,7 +141,7 @@ class RubyLang(BaseLang):
             #start of line, maybe some space, "class", then namespacing, class name, some non character space or end of line
             return '^\s*(class[a-zA-Z0-9: ]*( |:){0}|module .*{0})(\W+|$)'.format(token)
         elif re.match("^[a-z_]*$", token):                            #function
-            return '(def|def self.) *{0}\\b'.format(token)                 
+            return '(def|def self.) *{0}(\W+|$)'.format(token)                 
         else:
             return None
 
