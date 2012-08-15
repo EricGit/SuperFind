@@ -1,7 +1,7 @@
 import sublime, sublime_plugin, os
 import re
 
-g_file_scanner = None
+g_file_scanners = {}
 
 # to run:
 # window.run_command('super_find') or window.run_command('super_find_all')
@@ -14,9 +14,10 @@ class SuperFind(sublime_plugin.WindowCommand):
 
     def super_find(self, lang):
 
-        global g_file_scanner
-        if (g_file_scanner == None):
-            g_file_scanner = FileScanner(self.window.folders()[0])
+        root_dir = self.window.folders()[0]
+        global g_file_scanners
+        if not g_file_scanners.has_key(root_dir):
+            g_file_scanners[root_dir] = FileScanner(root_dir)
 
         selected_text = self.get_selected_text()
 
@@ -26,7 +27,7 @@ class SuperFind(sublime_plugin.WindowCommand):
             return
 
         # show list if 2 or more items (also for 0 to show that we couldn't find anything)
-        self.files_list = g_file_scanner.scan_files(lang.get_regex_from_token(selected_text), lang.files_to_search())
+        self.files_list = g_file_scanners[root_dir].scan_files(lang.get_regex_from_token(selected_text), lang.files_to_search())
         if (len(self.files_list) != 1):
             sublime.set_timeout(self.show_quick_panel, 10)
         else:
