@@ -34,7 +34,7 @@ The "Packages" packages directory is located at:
 Using
 -----
 
-* SuperFind helps you find class, modules, and functions in ruby, erb, and javascript files. even across files with just a click. Use ``super+f3`` or ``alt+click`` which will select the word and do a search.
+* SuperFind helps you find class, modules, and functions in ruby, erb, and javascript files. even across files with just a click. Use ``command+click`` or ``ctrl+alt+click`` which will select the word and do a search.
 
 * The first time you use it scans all files and reads at least some files.  Beacause of this, it might be slow on the first try.
 
